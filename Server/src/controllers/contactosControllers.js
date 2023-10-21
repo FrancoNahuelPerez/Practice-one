@@ -11,8 +11,8 @@ const postContactos = async ({ name, phone }) => {
 };
 
 const getAllContactos = async()=>{
-    const found = await Contactos.findAll()
-    return found
+    const foundContactos = await Contactos.findAll()
+    return foundContactos
 }
 
 module.exports = {
