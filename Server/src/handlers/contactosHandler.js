@@ -1,5 +1,7 @@
+const { response } = require('express');
 const {postContactos,
-getAllContactos} = require('../controllers/contactosControllers')
+getAllContactos,
+putContactos} = require('../controllers/contactosControllers')
 
 const postContactosHandler = async(require,response) =>{
     const {name, phone} = require.body;
@@ -20,9 +22,21 @@ const getAllContactosHandler = async (require,response) =>{
     }
 }
 
+const putContactosHandler = async(require,response) =>{
+    const {id} = require.params
+    const {name, phone} = require.body
+    try {
+        const contacto = await putContactos({name, phone, id})
+        response.status(200).json(contacto)
+    } catch (error) {
+        response.status(400).json({error:error.message})
+    }
+}
+
 
 
 module.exports = {
     postContactosHandler,
-    getAllContactosHandler
+    getAllContactosHandler,
+    putContactosHandler
 }
