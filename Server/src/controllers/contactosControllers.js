@@ -15,7 +15,7 @@ const getAllContactos = async () => {
   return foundContactos;
 };
 
-const putContactos = async ({id, name, phone }) => {
+const putContactos = async ({ id, name, phone }) => {
   const contacto = await Contactos.findByPk(id);
 
   if (!contacto) {
@@ -30,8 +30,20 @@ const putContactos = async ({id, name, phone }) => {
   return contacto;
 };
 
+const deleteContacto = async ({ id }) => {
+  const foundContacto = await Contactos.findByPk(id);
+
+  if (foundContacto) {
+    await Contactos.destroy({ where: { id } });
+    return "Contacto eliminado exitosamente";
+  } else {
+    throw new Error("Contacto no encontrado");
+  }
+};
+
 module.exports = {
   postContactos,
   getAllContactos,
-  putContactos
+  putContactos,
+  deleteContacto,
 };
