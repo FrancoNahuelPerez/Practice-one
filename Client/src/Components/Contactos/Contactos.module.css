@@ -1,0 +1,16 @@
+/* Contactos.module.css */
+.card {
+    border-radius: 5px;
+    border-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  
+.name {
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+  }
+  
