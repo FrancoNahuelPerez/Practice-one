@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import validations from "./validation";
 
 export default function Form() {
   const [form, setForm] = useState({
@@ -14,6 +15,12 @@ export default function Form() {
       ...form,
       [event.target.name]: event.target.value,
     });
+    setError(
+      validations({
+        ...form,
+        [event.target.name]: event.target.value,
+      })
+    )
   };
 
   return (
