@@ -37,6 +37,7 @@ export default function Form() {
         onChange={changeHandler}
         name="name"
         placeholder="Insert Name..."></input>
+        {error.name && <p>{error.name}</p>}
         <label htmlFor="phone">
           Numero:
         </label>
@@ -47,6 +48,7 @@ export default function Form() {
         onChange={changeHandler}
         name="phone"
         placeholder="Insert Number..."></input>
+        {error.phone && <p>{error.phone}</p>}
       </form>
     </div>
   );
