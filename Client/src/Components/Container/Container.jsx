@@ -14,8 +14,8 @@ export default function Container() {
 
   return (
     <div>
-      {contactos.map((contactitos) => {
-       return <Contactos name={contactitos.name} phone={contactitos.phone} />;
+      {contactos.map((contactitos, index) => {
+       return <Contactos key={index} name={contactitos.name} phone={contactitos.phone} />;
       })}
     </div>
   );

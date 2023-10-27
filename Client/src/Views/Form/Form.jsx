@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import validations from "./validation";
+import axios from "axios";
 
 export default function Form() {
   const [form, setForm] = useState({
@@ -23,9 +24,20 @@ export default function Form() {
     )
   };
 
+const submitHanlder = (event) =>{
+  event.preventDefault()
+
+  const response = axios.post("http://localhost:3001/contactos/",form)
+  if(response){
+    alert("El contacto se ha agregado exitosamente")
+  }else{
+    alert(error.response.data.error)
+  }
+}
+
   return (
     <div>
-      <form>
+      <form onSubmit={submitHanlder}>
         <h1>Agregar Contacto</h1>
         <label htmlFor="name">
           Nombre:
@@ -49,6 +61,8 @@ export default function Form() {
         name="phone"
         placeholder="Insert Number..."></input>
         {error.phone && <p>{error.phone}</p>}
+        <button disabled={!form.name || !form.phone
+        }> Agregar contacto</button>
       </form>
     </div>
   );
