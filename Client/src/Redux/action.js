@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CONTACTOS, DEL_CONTACTOS } from "./actionType";
+import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS } from "./actionType";
 
 export const getContactos = () => {
   return async function (dispatch) {
@@ -15,10 +15,31 @@ export const getContactos = () => {
 export const delContactos = (id) => {
   return async function (dispatch) {
     try {
-      const eliminar = await axios.delete(`http://localhost:3001/contactos/${id}`);
+      const eliminar = await axios.delete(
+        `http://localhost:3001/contactos/${id}`
+      );
       dispatch({ type: DEL_CONTACTOS, payload: eliminar.data });
     } catch (error) {
-        alert('Error al eliminar el contacto')
+      alert("Error al eliminar el contacto");
+    }
+  };
+};
+
+export const postContactos = (props) => {
+  return async function (dispatch) {
+    try {
+      const response = axios.post("http://localhost:3001/contactos/", {
+        ...props,
+      });
+      alert("Contacto agregado Exitosamente");
+      dispatch({type: POST_CONTACTOS, payload: response.data})
+    } catch (error) {
+      if(error.response){
+        alert(error.response.data.error)
+      }
+      else{
+        alert("El contacto no se ha podido crear")
+      }
     }
   };
 };
