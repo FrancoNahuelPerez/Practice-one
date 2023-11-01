@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS } from "./actionType";
+import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS, GET_CONTACTOS_ID } from "./actionType";
 
 export const getContactos = () => {
   return async function (dispatch) {
@@ -43,3 +43,14 @@ export const postContactos = (props) => {
     }
   };
 };
+
+export const getContactosId = (id) =>{
+  return async function(dispatch){
+    try {
+      const response = axios.get(`http://localhost:3001/contactos/${id}`)
+      dispatch({type:GET_CONTACTOS_ID, payload:response.data})
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+}

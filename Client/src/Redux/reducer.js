@@ -1,7 +1,8 @@
-import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS } from "./actionType";
+import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS, GET_CONTACTOS_ID } from "./actionType";
 
 const initialState = {
     contactos : [],
+    contactosID: []
     
 
 };
@@ -24,6 +25,11 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 contactos: [...state.contactos, action.payload]
+            }
+        case GET_CONTACTOS_ID:
+            return{
+                ...state,
+                contactosID: action.payload
             }
         default:
             return {...state}
