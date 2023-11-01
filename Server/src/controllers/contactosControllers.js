@@ -41,9 +41,18 @@ const deleteContacto = async ({ id }) => {
   }
 };
 
+const contactoById = async({id}) =>{
+  const searchId = await Contactos.findByPk(id)
+  if(!searchId){
+    throw new Error("No existe un contacto con ese id")
+  }
+  return searchId
+}
+
 module.exports = {
   postContactos,
   getAllContactos,
   putContactos,
   deleteContacto,
+  contactoById
 };
