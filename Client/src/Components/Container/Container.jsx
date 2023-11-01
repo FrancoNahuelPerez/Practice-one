@@ -7,7 +7,7 @@ import Contactos from "../Contactos/Contactos";
 export default function Container() {
   const contactos = useSelector((state) => state.contactos);
   const dispatch = useDispatch();
-  console.log(contactos)  
+
   useEffect(() => {
     dispatch(getContactos());
   }, [dispatch]);
@@ -15,7 +15,14 @@ export default function Container() {
   return (
     <div>
       {contactos.map((contactitos, index) => {
-       return <Contactos key={index} name={contactitos.name} phone={contactitos.phone} />;
+        return (
+          <Contactos
+            key={index}
+            name={contactitos.name}
+            phone={contactitos.phone}
+            id={contactitos.id}
+          />
+        );
       })}
     </div>
   );

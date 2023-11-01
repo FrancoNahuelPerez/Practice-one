@@ -28,7 +28,7 @@ export const delContactos = (id) => {
 export const postContactos = (props) => {
   return async function (dispatch) {
     try {
-      const response = axios.post("http://localhost:3001/contactos/", {
+      const response = await axios.post("http://localhost:3001/contactos/", {
         ...props,
       });
       alert("Contacto agregado Exitosamente");
@@ -47,7 +47,7 @@ export const postContactos = (props) => {
 export const getContactosId = (id) =>{
   return async function(dispatch){
     try {
-      const response = axios.get(`http://localhost:3001/contactos/${id}`)
+      const response = await axios.get(`http://localhost:3001/contactos/${id}`)
       dispatch({type:GET_CONTACTOS_ID, payload:response.data})
     } catch (error) {
       console.log(error.message);
