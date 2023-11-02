@@ -44,6 +44,9 @@ export default function Detail() {
     <div>
       <h4>Contacto: {contactos?.name}</h4>
       <h4>Numero: {contactos?.phone}</h4>
+      <button onClick={handleDelete}>
+        Delete
+      </button>
     </div>
   );
 }
