@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getContactosId, getContactos, delContactos} from "../../Redux/action";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Detail() {
   const contactos = useSelector((state) => state.contactosID);
-  console.log('contactos', typeof(contactos))
+  const navigate = useNavigate()
+ 
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -36,6 +39,7 @@ export default function Detail() {
     if(confirmed){
       dispatch(delContactos(id))
       alert("Contacto eliminado exitosamente")
+      navigate("/home")
     }
   }
 
