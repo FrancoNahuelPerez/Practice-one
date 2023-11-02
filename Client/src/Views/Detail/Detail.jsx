@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getContactosId, getContactos} from "../../Redux/action";
+import { getContactosId, getContactos, delContactos} from "../../Redux/action";
 
 export default function Detail() {
   const contactos = useSelector((state) => state.contactosID);
@@ -17,6 +17,28 @@ export default function Detail() {
   useEffect(() =>{
     dispatch(getContactos())
   })
+
+  // const handleDelete = () => {
+  //   const confirmed = window.confirm(
+  //     "Are you sure you want to delete this Pokémon?"
+  //   );
+  //   if (confirmed) {
+  //     dispatch(deletePokemon(id));
+  //     dispatch(fetchPokemons());
+  //     alert("Pokemon deleted successfully");
+  //     navigate("/pokemons");
+  //   }
+  // };
+
+
+  const handleDelete = () => {
+    const confirmed = window.confirm("Estas seguro que deseas eliminar este contacto?")
+    if(confirmed){
+      dispatch(delContactos(id))
+      alert("Contacto eliminado exitosamente")
+    }
+  }
+
 
   return (
     <div>
