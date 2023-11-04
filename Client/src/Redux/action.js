@@ -1,5 +1,18 @@
 import axios from "axios";
-import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS, GET_CONTACTOS_ID } from "./actionType";
+import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS, GET_CONTACTOS_ID, PUT_CONTACTOS } from "./actionType";
+
+
+export const putContactos = (id,payload) =>{
+  return async function(dispatch){
+    try {
+      const response = await axios.put(`http://localhost:3001/contactos/edit/${id}`, payload)
+      dispatch({type: PUT_CONTACTOS, payload:response.data})
+    } catch (error) {
+      alert('Error al cambiar el contacto')
+    }
+  }
+}
+
 
 export const getContactos = () => {
   return async function (dispatch) {

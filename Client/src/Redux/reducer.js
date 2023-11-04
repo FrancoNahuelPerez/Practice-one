@@ -1,10 +1,8 @@
-import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS, GET_CONTACTOS_ID } from "./actionType";
+import { GET_CONTACTOS, DEL_CONTACTOS, POST_CONTACTOS, GET_CONTACTOS_ID, PUT_CONTACTOS } from "./actionType";
 
 const initialState = {
     contactos : [],
     contactosID: []
-    
-
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -30,6 +28,11 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 contactosID: action.payload
+            }
+        case PUT_CONTACTOS:
+            return{
+                ...state,
+                contactos: action.payload
             }
         default:
             return {...state}

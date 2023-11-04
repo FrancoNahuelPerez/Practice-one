@@ -8,7 +8,7 @@ const contactosRouter = Router();
 
 contactosRouter.post("/", postContactosHandler);
 contactosRouter.get('/', getAllContactosHandler)
-contactosRouter.put('/:id',putContactosHandler)
+contactosRouter.put('edit/:id',putContactosHandler)
 contactosRouter.delete('/:id', deleteContactoHandler)
 contactosRouter.get('/:id', contactoByIdHandler)
 
