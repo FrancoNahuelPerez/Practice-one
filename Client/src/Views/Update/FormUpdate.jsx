@@ -35,7 +35,7 @@ export default function FormUpdate() {
         phone: "",
       });
     };
-  },[contactosId]);
+  }, [contactosId]);
 
   const changeHandler = (event) => {
     setForm({
@@ -51,10 +51,17 @@ export default function FormUpdate() {
   };
   const submitHanlder = (event) => {
     event.preventDefault();
-    dispatch(putContactos(id, form));
-    alert("Contacto actualizado exitosamente");
-    dispatch(getContactos);
-    navigate("/home");
+
+    const confirmed = window.confirm(
+      `Estas Seguro que quieres modificar a ${contactosId.name}?`
+    );
+
+    if (confirmed) {
+      dispatch(putContactos(id, form));
+      alert("Contacto actualizado exitosamente");
+      dispatch(getContactos);
+      navigate(`/detail/${id}`);
+    }
   };
 
   return (
@@ -80,8 +87,7 @@ export default function FormUpdate() {
           onChange={changeHandler}
         ></input>
         {error.phone && <p>{error.phone}</p>}
-        <button disabled={!form.name || !form.phone
-        }> Editar contacto</button>
+        <button disabled={!form.name || !form.phone}> Editar contacto</button>
       </form>
     </div>
   );

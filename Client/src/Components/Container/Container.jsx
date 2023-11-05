@@ -14,7 +14,7 @@ export default function Container() {
 
   return (
     <div>
-      {contactos.map((contactitos, index) => {
+      {contactos?.map((contactitos, index) => {
         return (
           <Contactos
             key={index}

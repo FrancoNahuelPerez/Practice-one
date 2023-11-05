@@ -8,7 +8,7 @@ export const putContactos = (id,payload) =>{
       const response = await axios.put(`http://localhost:3001/contactos/edit/${id}`, payload)
       dispatch({type: PUT_CONTACTOS, payload:response.data})
     } catch (error) {
-      alert('Error al cambiar el contacto')
+      console.log(error.response.data.error)
     }
   }
 }
