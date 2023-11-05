@@ -1,4 +1,4 @@
-import { Detail,Form,Landing,Home } from "./Views/index"
+import { Detail,Form,Landing,Home, FormUpdate } from "./Views/index"
 import { Route, Routes } from "react-router-dom"
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         <Route path="/home" element={<Home/>}></Route>
         <Route path="/form" element={<Form/>}></Route>
         <Route path="/detail/:id" element={<Detail/>}></Route>
+        <Route path="/formUpdate/:id" element={<FormUpdate/>}></Route>
       </Routes>
     </div>
   )

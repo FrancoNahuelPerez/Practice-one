@@ -2,8 +2,11 @@ import React from "react";
 import { useState } from "react";
 import validations from "./validation";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -30,6 +33,7 @@ const submitHanlder = (event) =>{
   const response = axios.post("http://localhost:3001/contactos/",form)
   if(response){
     alert("El contacto se ha agregado exitosamente")
+    navigate('/home')
   }else{
     alert(error.response.data.error)
   }
