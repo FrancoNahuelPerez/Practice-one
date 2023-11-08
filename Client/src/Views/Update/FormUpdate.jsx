@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContactosId, putContactos, getContactos } from "../../Redux/action";
+import styles from './FormUpdate.module.css'
+
 
 export default function FormUpdate() {
   const dispatch = useDispatch();
@@ -65,30 +67,30 @@ export default function FormUpdate() {
   };
 
   return (
-    <div>
-      <form onSubmit={submitHanlder}>
-        <label htmlFor="name">Nombre</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Insert Nombre..."
-          value={form.name}
-          onChange={changeHandler}
-        ></input>
-        {error.name && <p>{error.name}</p>}
-        <label htmlFor="phone">Numero</label>
-        <input
-          type="text"
-          name="phone"
-          id="phone"
-          placeholder="Insert Numero..."
-          value={form.phone}
-          onChange={changeHandler}
-        ></input>
-        {error.phone && <p>{error.phone}</p>}
-        <button disabled={!form.name || !form.phone}> Editar contacto</button>
-      </form>
-    </div>
+    <div className={styles.container}>
+    <form onSubmit={submitHanlder}>
+      <label htmlFor="name">Nombre</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Insert Nombre..."
+        value={form.name}
+        onChange={changeHandler}
+      />
+      {error.name && <p>{error.name}</p>}
+      <label htmlFor="phone">Numero</label>
+      <input
+        type="text"
+        name="phone"
+        id="phone"
+        placeholder="Insert Numero..."
+        value={form.phone}
+        onChange={changeHandler}
+      />
+      {error.phone && <p>{error.phone}</p>}
+      <button disabled={!form.name || !form.phone}>Editar contacto</button>
+    </form>
+  </div>
   );
 }
