@@ -1,0 +1,56 @@
+/* styles.module.css */
+
+/* Estilo para el contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 400px;
+  }
+  
+  /* Estilo para el título */
+  h1 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  /* Estilo para las etiquetas de los campos de entrada */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Estilo para los campos de entrada de texto */
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilo para los mensajes de error */
+  p {
+    color: red;
+    margin: 5px 0;
+  }
+  
+  /* Estilo para el botón de agregar contacto */
+  button {
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilo para el botón de agregar contacto cuando está deshabilitado */
+  button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

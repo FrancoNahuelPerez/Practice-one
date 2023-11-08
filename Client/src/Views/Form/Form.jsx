@@ -3,6 +3,8 @@ import { useState } from "react";
 import validations from "./validation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styles from './Form.module.css'
+
 
 export default function Form() {
   const navigate = useNavigate()
@@ -40,33 +42,30 @@ const submitHanlder = (event) =>{
 }
 
   return (
-    <div>
+    <div className={styles.container}>
       <form onSubmit={submitHanlder}>
         <h1>Agregar Contacto</h1>
-        <label htmlFor="name">
-          Nombre:
-        </label>
+        <label htmlFor="name">Nombre:</label>
         <input
-        id="name"
-        type="text"
-        value={form.name}
-        onChange={changeHandler}
-        name="name"
-        placeholder="Insert Name..."></input>
+          id="name"
+          type="text"
+          value={form.name}
+          onChange={changeHandler}
+          name="name"
+          placeholder="Insert Name..."
+        />
         {error.name && <p>{error.name}</p>}
-        <label htmlFor="phone">
-          Numero:
-        </label>
+        <label htmlFor="phone">Numero:</label>
         <input
-        id="phone"
-        type="text"
-        value={form.phone}
-        onChange={changeHandler}
-        name="phone"
-        placeholder="Insert Number..."></input>
+          id="phone"
+          type="text"
+          value={form.phone}
+          onChange={changeHandler}
+          name="phone"
+          placeholder="Insert Number..."
+        />
         {error.phone && <p>{error.phone}</p>}
-        <button disabled={!form.name || !form.phone
-        }> Agregar contacto</button>
+        <button disabled={!form.name || !form.phone}>Agregar contacto</button>
       </form>
     </div>
   );
