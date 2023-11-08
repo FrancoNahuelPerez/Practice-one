@@ -21,17 +21,7 @@ export default function Detail() {
     dispatch(getContactos());
   });
 
-  // const handleDelete = () => {
-  //   const confirmed = window.confirm(
-  //     "Are you sure you want to delete this Pokémon?"
-  //   );
-  //   if (confirmed) {
-  //     dispatch(deletePokemon(id));
-  //     dispatch(fetchPokemons());
-  //     alert("Pokemon deleted successfully");
-  //     navigate("/pokemons");
-  //   }
-  // };
+
 
   const handleDelete = () => {
     const confirmed = window.confirm(
@@ -45,13 +35,13 @@ export default function Detail() {
   };
 
   return (
-    <div>
-      <h4>Contacto: {contactos?.name}</h4>
-      <h4>Numero: {contactos?.phone}</h4>
-      <button onClick={handleDelete}>Delete</button>
-      <Link to={`/formUpdate/${id}`}>
-        <button>Editar</button>
-      </Link>
-    </div>
+    <div className={styles.container}>
+    <h4>Contacto: {contactos?.name}</h4>
+    <h4>Numero: {contactos?.phone}</h4>
+    <button className={styles.deleteButton} onClick={handleDelete}>Delete</button>
+    <Link to={`/formUpdate/${id}`} className={styles.editButton}>
+      Editar
+    </Link>
+  </div>
   );
 }
