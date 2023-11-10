@@ -10,6 +10,9 @@ export default function Landing() {
       <Link to='/home'>
         <button>Home</button>
       </Link>
+      <Link to='/form'>
+        <button>Home</button>
+      </Link>
     </div>
   );
 }
