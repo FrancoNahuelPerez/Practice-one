@@ -1,5 +1,5 @@
 const {Usuarios} = require('../db')
-
+// "UsuarioId agregar para poder conectar la cuenta a cada usuario
 const postUser = async({username, password}) =>{
     const found = await Usuarios.findOne({where:{username}})
 
